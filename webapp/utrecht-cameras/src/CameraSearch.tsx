@@ -7,7 +7,7 @@ function CameraSearch() {
 	}
 
 	return (
-		<div>
+		<div className="camera-search">
 			<label>
 				Zoek een camera:<br />
 				<input type="text" onChange={onSearch} />

@@ -54,8 +54,8 @@ function App() {
       </nav>
       <div>
         <CameraSearch />
-        <CameraData orderedCameraData={orderedCameraData} />
         <CameraMap cameras={orderedCameraData.flat()} />
+        <CameraData orderedCameraData={orderedCameraData} />
       </div>
     </div>
   )
