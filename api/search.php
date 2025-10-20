@@ -20,7 +20,7 @@ while ($row = fgetcsv($file, escape: "\\")) {
 	$cam_id = $matches[1];
 	$cam_name = $matches[2];
 
-	array_unshift($camera, $matches[2]);
+	array_unshift($camera, trim($matches[2]));
 	array_unshift($camera, $matches[1]);
 	$data[] = $camera;
 }
