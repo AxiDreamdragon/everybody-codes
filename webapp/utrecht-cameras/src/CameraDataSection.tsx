@@ -37,8 +37,8 @@ function CameraDataSection({ cameras, header }: Props) {
 								<tr key={camera.id}>
 									<td>{camera.id}</td>
 									<td>{camera.name}</td>
-									<td>{camera.lat}</td>
-									<td>{camera.lng}</td>
+									<td>{camera.lat}°</td>
+									<td>{camera.lng}°</td>
 								</tr>
 							))}
 						</tbody>
