@@ -2,7 +2,7 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import type { Camera } from "./Camera";
 import { LatLng } from "leaflet";
 import 'leaflet/dist/leaflet.css';
-import { useState, useEffect } from "react";
+import { useSearch } from "./SearchContext";
 
 type Props = {
 	cameras: Camera[];
@@ -10,21 +10,7 @@ type Props = {
 
 function CameraMap({ cameras }: Props) {
 	const position = new LatLng(52.0914, 5.1115);
-	const [searchQuery, setSearchQuery] = useState<string>("");
-
-	useEffect(() => {
-		const onSearch = (e: Event) => {
-			const customEvent = e as CustomEvent;
-
-			setSearchQuery(customEvent.detail);
-		}
-
-		window.addEventListener('search', onSearch);
-
-		return () => {
-			window.removeEventListener('search', onSearch);
-		}
-	}, []);
+	const { searchQuery } = useSearch();
 
 	return (
 		<MapContainer style={{ width: '100%', height: '100dvh' }}

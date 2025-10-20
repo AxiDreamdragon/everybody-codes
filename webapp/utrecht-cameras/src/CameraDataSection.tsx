@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { Camera } from "./Camera"
 import { MdOutlineArrowForwardIos } from "react-icons/md";
+import { useSearch } from "./SearchContext";
 
 type Props = {
 	cameras: Camera[];
@@ -9,20 +10,7 @@ type Props = {
 
 function CameraDataSection({ cameras, header }: Props) {
 	const [folded, setFolded] = useState<boolean>(true);
-	const [searchQuery, setSearchQuery] = useState<string>("");
-
-	useEffect(() => {
-		const onSearch = (e: Event) => {
-			const customEvent = e as CustomEvent;
-			setSearchQuery(customEvent.detail);
-		}
-
-		window.addEventListener('search', onSearch);
-
-		return () => {
-			window.removeEventListener('search', onSearch);
-		}
-	}, []);
+	const { searchQuery } = useSearch();
 
 	return (
 		<div>

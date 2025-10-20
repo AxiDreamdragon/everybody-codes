@@ -1,16 +1,15 @@
 import type React from "react";
+import { useSearch } from "./SearchContext";
 
 function CameraSearch() {
-	const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-		//TODO: It would be better to make a provider out of this
-		window.dispatchEvent(new CustomEvent('search', { detail: e.target.value }))
-	}
+	const { setSearchQuery } = useSearch();
 
 	return (
 		<div className="camera-search">
 			<label>
 				Zoek een camera:<br />
-				<input type="text" onChange={onSearch} />
+				<input type="text"
+					onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)} />
 			</label>
 		</div>
 	)
