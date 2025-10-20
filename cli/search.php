@@ -1,12 +1,14 @@
 <?php
 
 // check argv[1] for now - can check --name later
-if ($argc < 2) {
-	echo "Usage: php search.php <query>\n";
+$args = getopt("", ["name:"]);
+
+if (!isset($args["name"])) {
+	echo "Usage: php search.php --name <query>\n";
 	exit(1);
 }
 
-$query = $argv[1];
+$query = $args["name"];
 
 // read CSV
 $file = fopen(__DIR__ . "/cameras-defb.csv", "r");
