@@ -11,7 +11,7 @@ function CameraMap({ cameras }: Props) {
 	const position = new LatLng(52.0914, 5.1115);
 
 	return (
-		<MapContainer style={{ width: '100dvw', height: '100dvh' }}
+		<MapContainer style={{ width: '100%', height: '100dvh' }}
 			center={position}
 			zoom={13}>
 			<TileLayer

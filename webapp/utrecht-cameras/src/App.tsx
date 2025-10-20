@@ -3,6 +3,7 @@ import './App.css';
 import type { Camera } from './Camera';
 import CameraData from './CameraData';
 import CameraMap from './CameraMap';
+import echtIcon from './assets/wapen-echt-rood.svg';
 
 function App() {
   const [orderedCameraData, setOrderedCameraData] = useState<Camera[][]>([[], [], [], []]);
@@ -45,9 +46,10 @@ function App() {
 
 
   return (
-    <div>
+    <div className='content'>
       <nav>
-        <h1>Utrecht Cameras</h1>
+        <img src={echtIcon} className='echt-icon' />
+        <h1>Cameras</h1>
       </nav>
       <div>
         <CameraData orderedCameraData={orderedCameraData} />

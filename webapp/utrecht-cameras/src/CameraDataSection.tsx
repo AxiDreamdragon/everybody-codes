@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import type { Camera } from "./Camera"
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 
@@ -8,7 +8,7 @@ type Props = {
 }
 
 function CameraDataSection({ cameras, header }: Props) {
-	const [folded, setFolded] = useState<boolean>(false);
+	const [folded, setFolded] = useState<boolean>(true);
 
 	return (
 		<div>

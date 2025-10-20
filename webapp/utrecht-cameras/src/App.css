@@ -1,4 +1,10 @@
-.camera-columns {}
+.content {
+  margin: 0 6rem;
+  padding: 2rem;
+  background-color: white;
+  box-sizing: border-box;
+  min-height: 100dvh;
+}
 
 .section-data {
   overflow: hidden;
@@ -13,4 +19,8 @@
 
 .arrow {
   transition: 0.2s all ease-out;
+}
+
+.echt-icon {
+  height: 100%;
 }
