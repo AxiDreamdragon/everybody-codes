@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import type { Camera } from './Camera';
-import ColumnData from './ColumnData';
+import CameraData from './CameraData';
 import CameraMap from './CameraMap';
 
 function App() {
@@ -50,7 +50,7 @@ function App() {
         <h1>Utrecht Cameras</h1>
       </nav>
       <div>
-        <ColumnData orderedCameraData={orderedCameraData} />
+        <CameraData orderedCameraData={orderedCameraData} />
         <CameraMap cameras={orderedCameraData.flat()} />
       </div>
     </div>
