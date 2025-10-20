@@ -14,6 +14,7 @@ $query = $args["name"];
 $file = fopen(__DIR__ . "/cameras-defb.csv", "r");
 fgetcsv($file, escape: "\\"); //skip first line, this contains headers
 
+$found_camera = false;
 while ($row = fgetcsv($file, escape: "\\")) {
 	$camera = str_getcsv($row[0], ';', '"', '\\');
 	preg_match('/UTR-CM-(\d+)(\D.+)/', $camera[0], $matches);
@@ -26,7 +27,14 @@ while ($row = fgetcsv($file, escape: "\\")) {
 	$cam_name = $matches[2];
 
 	if (str_contains($cam_name, $query)) {
+		$found_camera = true;
 		array_unshift($camera, $matches[1]);
 		echo implode(' | ', $camera) . "\n";
 	}
+}
+
+fclose($file);
+
+if (!$found_camera) {
+	echo "Could not find any cameras with this name.";
 }
