@@ -8,7 +8,7 @@ type Props = {
 function CameraColumn({ cameras, header }: Props) {
 	return (
 		<div>
-			{header}
+			<h2>{header}</h2>
 			{cameras.length > 0 ?
 				<table>
 					<thead>
@@ -21,7 +21,7 @@ function CameraColumn({ cameras, header }: Props) {
 					</thead>
 					<tbody>
 						{cameras.map(camera => (
-							<tr>
+							<tr key={camera.id}>
 								<td>{camera.id}</td>
 								<td>{camera.name}</td>
 								<td>{camera.lat}</td>

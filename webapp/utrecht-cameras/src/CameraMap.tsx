@@ -23,7 +23,7 @@ function CameraMap({ cameras }: Props) {
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			/>
 			{cameras.map(camera => <Marker position={new LatLng(camera.lat, camera.lng)}>
-				<Popup>
+				<Popup key={camera.id}>
 					{camera.name}
 				</Popup>
 			</Marker>)}
