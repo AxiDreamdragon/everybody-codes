@@ -7,7 +7,7 @@ type Props = {
 	header: string;
 }
 
-function CameraColumn({ cameras, header }: Props) {
+function CameraDataSection({ cameras, header }: Props) {
 	const [folded, setFolded] = useState<boolean>(false);
 
 	return (
@@ -50,4 +50,4 @@ function CameraColumn({ cameras, header }: Props) {
 	)
 }
 
-export default CameraColumn;
+export default CameraDataSection;
