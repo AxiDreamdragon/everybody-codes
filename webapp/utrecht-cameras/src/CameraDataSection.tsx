@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Camera } from "./Camera"
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 
@@ -9,6 +9,20 @@ type Props = {
 
 function CameraDataSection({ cameras, header }: Props) {
 	const [folded, setFolded] = useState<boolean>(true);
+	const [searchQuery, setSearchQuery] = useState<string>("");
+
+	useEffect(() => {
+		const onSearch = (e: Event) => {
+			const customEvent = e as CustomEvent;
+			setSearchQuery(customEvent.detail);
+		}
+
+		window.addEventListener('search', onSearch);
+
+		return () => {
+			window.removeEventListener('search', onSearch);
+		}
+	}, []);
 
 	return (
 		<div>
@@ -33,17 +47,22 @@ function CameraDataSection({ cameras, header }: Props) {
 							</tr>
 						</thead>
 						<tbody>
-							{cameras.map(camera => (
-								<tr key={camera.id}>
-									<td>{camera.id}</td>
-									<td>{camera.name}</td>
-									<td>{camera.lat}°</td>
-									<td>{camera.lng}°</td>
-								</tr>
-							))}
+							{cameras.map((camera, i) => {
+								if (!searchQuery || camera.name.toLowerCase().includes(searchQuery.toLowerCase())) {
+									return (<tr key={i}>
+										<td>{camera.id}</td>
+										<td>{camera.name}</td>
+										<td>{camera.lat}°</td>
+										<td>{camera.lng}°</td>
+									</tr>);
+								} else {
+									return null;
+								}
+							})}
 						</tbody>
 					</table>
 					:
+					// TODO: case for when search query results in no entries
 					<p>Geen camera's gevonden in dit bereik.</p>}
 			</div>
 		</div>

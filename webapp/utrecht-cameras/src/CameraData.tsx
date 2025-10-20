@@ -6,8 +6,7 @@ type Props = {
 }
 
 function CameraData({ orderedCameraData }: Props) {
-	//TODO: Camera Columns aren't actually columns, rename them
-	{/* iterating over each camera four times is slow, but the database is small enough that it's alright. */ }
+	// iterating over each camera four times is slow, but the database is small enough that it's alright.
 	return (
 		<div className='camera-columns'>
 			<CameraDataSection cameras={orderedCameraData[0]} header="Camera's tot 600" />

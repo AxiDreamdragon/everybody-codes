@@ -4,6 +4,7 @@ import type { Camera } from './Camera';
 import CameraData from './CameraData';
 import CameraMap from './CameraMap';
 import echtIcon from './assets/wapen-echt-rood.svg';
+import CameraSearch from './CameraSearch';
 
 function App() {
   const [orderedCameraData, setOrderedCameraData] = useState<Camera[][]>([[], [], [], []]);
@@ -52,6 +53,7 @@ function App() {
         <h1>Cameras</h1>
       </nav>
       <div>
+        <CameraSearch />
         <CameraData orderedCameraData={orderedCameraData} />
         <CameraMap cameras={orderedCameraData.flat()} />
       </div>
