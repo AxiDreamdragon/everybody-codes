@@ -1,3 +1,51 @@
+# Echt Cameras
+
+Hey, welkom bij mijn uitwerking van "Keep Talking and Everybody Codes"! Het lijkt me leuker om mijn code en keuzes fysiek toe te lichten, maar in het geval dat je alvast een kijkje wilt nemen, is hier de handleiding.
+
+## Handleiding
+
+### CLI
+Het CLI-onderdeel bevind zich in de 'cli'-map. Je kunt het script uitvoeren met de volgende opdracht:
+
+```sh
+# in CLI
+php  .\cli\search.php --name <zoekterm>
+```
+### API
+Het API-onderdeel bevind zich in de 'api'-map. Je kunt de server starten met de volgende opdracht:
+
+```sh
+# in CLI
+php -S localhost:8000
+```
+
+Daarna kan je de resultaten van de API zien via http://localhost:8000/api/get-camera-data.php.
+
+### Webapplicatie
+Het webapp-onderdeel bevind zich in de 'webapp'-map. Ik heb hierin een Vite-project gemaakt, in de 'echt-cameras'-map. Om de webapp te starten, navigeer je naar de 'echt-cameras'-map en voer je de volgende opdrachten uit:
+
+```sh
+# navigeer naar de map
+cd webapp/echt-cameras
+# installeer dependencies
+npm i
+# start de webapp
+npm run dev
+```
+
+En in een andere terminal:
+```sh
+# navigeer naar de map
+cd webapp/echt-cameras  
+# start de API server, zorg dat deze op poort 8000 draait
+php -S localhost:8000
+```
+
+De webapp is dan te bereiken via http://localhost:5173.
+
+## Tijdsbesteding
+Ik heb een kleine 4 uur besteed aan deze opdracht, exclusief lunchpauze van een uur. In de commit-geschiedenis is te zien hoe ik mijn tijd heb verdeeld over de verschillende onderdelen.
+
 # Keep Talking and Everybody Codes
 
 Een repository om te laten zien hoe jij code schrijft en over code denkt.
