@@ -1,6 +1,5 @@
 <?php
 
-// check argv[1] for now - can check --name later
 $args = getopt("", ["name:"]);
 
 if (!isset($args["name"])) {
