@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const fetchCameraData = async () => {
       try {
-        const response = await fetch('/api/search.php');
+        const response = await fetch('/api/get-camera-data.php');
         const rawData = await response.json();
 
         //I feel like this could be cleaner but it works - if I have time left I can look at it in detail
