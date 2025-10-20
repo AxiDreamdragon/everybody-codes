@@ -6,6 +6,10 @@
   min-height: 100dvh;
 }
 
+.camera-columns {
+  margin-bottom: 1rem;
+}
+
 .section-data {
   overflow: hidden;
   transition: 0.5s all ease-in-out;
@@ -15,6 +19,7 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+  user-select: none;
 }
 
 .arrow {
